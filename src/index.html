@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Screen Recorder</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <script defer src="render.js"></script>
+  <style>
+    .audio-meter {
+      width: 100%;
+      height: 25px;
+      background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+      border-radius: 5px;
+    }
+    .audio-level {
+      height: 100%;
+      background: gray;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+  <h1 class="text-3xl font-bold mb-8">Electron Screen Recorder</h1>
+  <div class="mt-4">
+    <label class="block mb-2 text-sm font-medium text-gray-700">Recording Time: <span id="recordingTime">00:00:00</span></label>
+  </div>
+
+  <video id="videoElement" class="border-4 border-gray-300 rounded mb-4" autoplay muted></video>
+
+  <div class="mb-4">
+    <button id="startBtn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">
+      Start
+    </button>
+    <button id="stopBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Stop
+    </button>
+  </div>
+
+  <div class="mb-4">
+    <label for="frameRateSelect" class="block mb-2 text-sm font-medium text-gray-700">Select Frame Rate:</label>
+    <select id="frameRateSelect" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+      <option value="120">120 fps</option>
+      <option value="60">60 fps</option>
+      <option value="30">30 fps</option>
+    </select>
+  </div>
+
+  <hr class="border-gray-300 w-full mb-4" />
+
+  <button id="videoSelectBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Choose a Video Source
+  </button>
+
+  <div class="mt-4 w-full flex justify-around">
+    <div class="flex flex-col items-center">
+      <label class="block mb-2 text-sm font-medium text-gray-700">Desktop Audio</label>
+      <div id="desktopAudioMeter" class="audio-meter">
+        <div id="desktopAudioLevel" class="audio-level"></div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
