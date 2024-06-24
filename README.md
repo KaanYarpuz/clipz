@@ -2,6 +2,8 @@ Clipz: Electron Screen Recorder
 
 Gebruik gemaakt van Electron, NodeJS
 
+Frontend gebruik gemaakt met TailwindCSS
+
 Gebruik 'npm install'
 
 Selecteer video source en begin met recorden!
